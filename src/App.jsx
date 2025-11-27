@@ -26,16 +26,21 @@ const DEFINED_ROUTES = [
 ];
 
 const NO_LAYOUT_ROUTES = ["/login", "/signup", "/forgot-password", "/dashboard"];
+const FULL_WIDTH_ROUTES = ["/"];
 
 const Layout = ({ children }) => {
   const { pathname } = useLocation();
   const shouldShowLayout =
     DEFINED_ROUTES.includes(pathname) && !NO_LAYOUT_ROUTES.includes(pathname);
 
+  const isFullWidth = FULL_WIDTH_ROUTES.includes(pathname);
+
   return (
-    <div className="w-full max-w-[1920px] mx-auto min-h-screen bg-background">
+    <div className="w-full min-h-screen bg-background flex flex-col">
       {shouldShowLayout && <Navbar />}
-      <main>{children}</main>
+
+      <main className={isFullWidth ? "w-full" : "w-[80%] mx-auto"}>{children}</main>
+
       <Toaster position="bottom-right" richColors />
       {shouldShowLayout && <FooterSection />}
     </div>

@@ -1,6 +1,5 @@
 import { Link as RouterLink } from "react-router-dom";
-import { DefaultLogo } from "@/components/Logo";
-import Waves from "@/components/react-bits/Waves";
+import { ThemedLogo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -8,21 +7,6 @@ import { Label } from "@/components/ui/label";
 export default function LoginPage() {
   return (
     <section className="flex min-h-screen bg-zinc-50 px-4 py-16 md:py-32 dark:bg-transparent relative">
-      <Waves
-        lineColor="rgba(0, 0, 0, 0.08)"
-        backgroundColor="transparent"
-        waveSpeedX={0.02}
-        waveSpeedY={0.01}
-        waveAmpX={40}
-        waveAmpY={20}
-        friction={0.9}
-        tension={0.01}
-        maxCursorMove={120}
-        xGap={12}
-        yGap={36}
-        className="opacity-40 dark:filter-[invert(1)]"
-      />
-
       <form
         action=""
         className="bg-card m-auto h-fit w-full max-w-sm rounded-[calc(var(--radius)+.125rem)] border p-0.5 shadow-md dark:[--color-muted:var(--color-zinc-900)] relative z-10"
@@ -30,7 +14,7 @@ export default function LoginPage() {
         <div className="p-8 pb-6">
           <div>
             <RouterLink to="/" aria-label="go home">
-              <DefaultLogo />
+              <ThemedLogo />
             </RouterLink>
             <h1 className="mb-1 mt-4 text-xl font-semibold">Sign In to Trevo</h1>
             <p className="text-sm">Welcome back! Sign in to continue</p>

@@ -16,11 +16,18 @@ export function DefaultLogo() {
   );
 }
 
-export function ThemedIcon() {
+export function BlackIcon() {
   return (
     <>
-      <img src="/trevo_icon_light.svg" alt="Trevo Icon" className="w-5 h-5 block dark:hidden" />{" "}
-      <img src="/trevo_icon_dark.svg" alt="Trevo Icon" className="w-5 h-5 hidden dark:block" />
+      <img src="/trevo_icon_light.svg" alt="Trevo Icon" className="w-auto h-6 block" />{" "}
+    </>
+  );
+}
+
+export function WhiteIcon() {
+  return (
+    <>
+      <img src="/trevo_icon_dark.svg" alt="Trevo Icon" className="w-auto h-6 block" />{" "}
     </>
   );
 }
