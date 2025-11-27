@@ -4,7 +4,7 @@ import { ChevronRightIcon } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
-import { Logo } from "./Logo";
+import { DefaultLogo } from "@/components/Logo";
 
 export function cn(...inputs) {
   return twMerge(clsx(inputs));
@@ -361,7 +361,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between p-10">
           <div className="flex flex-col items-start justify-start gap-y-5 max-w-xs mx-0">
             <Link to="/" className="flex items-center gap-2">
-              <Logo />
+              <DefaultLogo />
             </Link>
             <p className="tracking-tight text-muted-foreground font-medium">
               {siteConfig.hero.description}

@@ -1,14 +1,11 @@
 import { Link as RouterLink } from "react-router-dom";
-import { LogoIcon } from "@/components/Logo";
+import { DefaultLogo } from "@/components/Logo";
 import Waves from "@/components/react-bits/Waves";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
 export default function LoginPage() {
-  const navButtonClass =
-    "bg-primary text-primary-foreground ring-primary before:from-primary-foreground/20 after:from-primary-foreground/10 relative isolate inline-flex items-center justify-center overflow-hidden rounded-md px-2 text-left text-xs font-medium ring-1 before:pointer-events-none before:absolute before:inset-0 before:-z-10 before:rounded-md before:bg-linear-to-b before:opacity-80 before:transition-opacity before:duration-300 before:ease-[cubic-bezier(0.4,0.36,0,1)] after:pointer-events-none after:absolute after:inset-0 after:-z-10 after:rounded-md after:bg-linear-to-b after:to-transparent after:mix-blend-overlay hover:cursor-pointer h-7 sm:h-8 sm:px-3 sm:text-sm";
-
   return (
     <section className="flex min-h-screen bg-zinc-50 px-4 py-16 md:py-32 dark:bg-transparent relative">
       <Waves
@@ -33,9 +30,9 @@ export default function LoginPage() {
         <div className="p-8 pb-6">
           <div>
             <RouterLink to="/" aria-label="go home">
-              <LogoIcon />
+              <DefaultLogo />
             </RouterLink>
-            <h1 className="mb-1 mt-4 text-xl font-semibold">Sign In to Finance</h1>
+            <h1 className="mb-1 mt-4 text-xl font-semibold">Sign In to Trevo</h1>
             <p className="text-sm">Welcome back! Sign in to continue</p>
           </div>
 
@@ -115,7 +112,7 @@ export default function LoginPage() {
               />
             </div>
 
-            <Button className={`w-full ${navButtonClass}`}>Sign In</Button>
+            <Button className="w-full">Sign In</Button>
           </div>
         </div>
 

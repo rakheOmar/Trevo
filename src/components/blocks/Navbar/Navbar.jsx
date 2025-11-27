@@ -2,7 +2,7 @@ import { CornerDownLeft } from "lucide-react";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Logo } from "@/components/Logo";
+import { DefaultLogo } from "@/components/Logo";
 import { ModeToggle } from "@/components/ModeToggle";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/config/nav";
@@ -32,7 +32,7 @@ const NavBar = () => {
           )}
         >
           <Link to="/" className="absolute left-2 md:left-4 cursor-pointer">
-            <Logo />
+            <DefaultLogo />
           </Link>
 
           <div className="hidden md:flex items-center gap-8">
@@ -40,7 +40,7 @@ const NavBar = () => {
               <Link
                 key={item.href}
                 to={item.href}
-                className="text-lg text-foreground hover:text-foreground/70 transition-colors font-medium"
+                className="text-xl text-foreground hover:text-foreground/70 transition-colors font-medium"
               >
                 {item.label}
               </Link>
