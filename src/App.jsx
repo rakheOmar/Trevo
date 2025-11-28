@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 // COMPONENTS
 import Navbar from "@/components/blocks/Navbar/Navbar";
 import FooterSection from "@/components/Footer";
+import SmoothScrolling from "@/components/Lenis";
 import Dashboard from "@/pages/Dashboard";
 import ForgotPass from "@/pages/ForgotPass";
 // PAGES
@@ -53,7 +54,14 @@ function App() {
       <Layout>
         <Routes>
           {/* UNPROTECTED */}
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <SmoothScrolling>
+                <Home />
+              </SmoothScrolling>
+            }
+          />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-services" element={<TermsOfServices />} />
           <Route path="*" element={<NotFoundPage />} />

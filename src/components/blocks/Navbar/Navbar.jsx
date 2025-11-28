@@ -19,7 +19,7 @@ const NavBar = () => {
   useGSAP(
     () => {
       const scrolled = {
-        backgroundColor: "rgba(0,0,0,0.75)",
+        backgroundColor: "rgba(23,23,25,0.3)",
         backdropFilter: "blur(16px)",
         borderColor: "rgba(255,255,255,0.1)",
         boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
