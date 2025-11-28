@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 // COMPONENTS
 import Navbar from "@/components/blocks/Navbar/Navbar";
 import FooterSection from "@/components/Footer";
+import Dashboard from "@/pages/Dashboard";
 import ForgotPass from "@/pages/ForgotPass";
 // PAGES
 import Home from "@/pages/Home";
@@ -25,7 +26,7 @@ const DEFINED_ROUTES = [
 ];
 
 const NO_LAYOUT_ROUTES = ["/login", "/signup", "/forgot-password", "/dashboard"];
-const FULL_WIDTH_ROUTES = ["/"];
+const FULL_WIDTH_ROUTES = ["/", "/dashboard"];
 
 const Layout = ({ children }) => {
   const { pathname } = useLocation();
@@ -61,7 +62,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPass />} />
           {/* PROTECTED */}
-          {/* NONE */}
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         <SpeedInsights />
         <Analytics />

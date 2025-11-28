@@ -2,7 +2,7 @@ import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
 
 export default function LogoScroll() {
   return (
-    <section className="bg-transparent overflow-hidden py-16">
+    <section className="bg-transparent overflow-hidden py-16 w-[80%] mx-auto">
       <div className="group relative m-auto max-w-7xl px-6">
         <div className="flex flex-col items-center md:flex-row">
           <div className="md:max-w-44 md:border-r md:pr-6">

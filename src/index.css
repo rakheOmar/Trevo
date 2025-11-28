@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&family=Noto+Sans+Mono:wght@100..900&display=swap");
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -85,7 +86,7 @@
   --sidebar-accent-foreground: oklch(0.2046 0 0);
   --sidebar-border: oklch(0.9219 0 0);
   --sidebar-ring: oklch(0.709 0 0);
-  --font-sans: Geist Mono, monospace;
+  --font-sans: "Host Grotesk", monospace;
   --font-serif: Geist Mono, monospace;
   --font-mono: Geist Mono, monospace;
   --radius: 0rem;
@@ -140,7 +141,7 @@
   --sidebar-accent-foreground: oklch(0.9851 0 0);
   --sidebar-border: oklch(1 0 0);
   --sidebar-ring: oklch(0.4386 0 0);
-  --font-sans: Geist Mono, monospace;
+  --font-sans: "Host Grotesk", monospace;
   --font-serif: Geist Mono, monospace;
   --font-mono: Geist Mono, monospace;
   --radius: 0rem;
