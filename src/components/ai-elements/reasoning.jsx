@@ -10,7 +10,7 @@ import { Shimmer } from "./shimmer";
 
 const ReasoningContext = createContext(null);
 
-const useReasoning = () => {
+export const useReasoning = () => {
   const context = useContext(ReasoningContext);
   if (!context) {
     throw new Error("Reasoning components must be used within Reasoning");
@@ -89,7 +89,7 @@ export const Reasoning = memo(
   }
 );
 
-const getThinkingMessage = (isStreaming, duration) => {
+const defaultGetThinkingMessage = (isStreaming, duration) => {
   if (isStreaming || duration === 0) {
     return <Shimmer duration={1}>Thinking...</Shimmer>;
   }
@@ -99,29 +99,31 @@ const getThinkingMessage = (isStreaming, duration) => {
   return <p>Thought for {duration} seconds</p>;
 };
 
-export const ReasoningTrigger = memo(({ className, children, ...props }) => {
-  const { isStreaming, isOpen, duration } = useReasoning();
+export const ReasoningTrigger = memo(
+  ({ className, children, getThinkingMessage = defaultGetThinkingMessage, ...props }) => {
+    const { isStreaming, isOpen, duration } = useReasoning();
 
-  return (
-    <CollapsibleTrigger
-      className={cn(
-        "flex w-full items-center gap-2 text-muted-foreground text-sm transition-colors hover:text-foreground",
-        className
-      )}
-      {...props}
-    >
-      {children ?? (
-        <>
-          <BrainIcon className="size-4" />
-          {getThinkingMessage(isStreaming, duration)}
-          <ChevronDownIcon
-            className={cn("size-4 transition-transform", isOpen ? "rotate-180" : "rotate-0")}
-          />
-        </>
-      )}
-    </CollapsibleTrigger>
-  );
-});
+    return (
+      <CollapsibleTrigger
+        className={cn(
+          "flex w-full items-center gap-2 text-muted-foreground text-sm transition-colors hover:text-foreground",
+          className
+        )}
+        {...props}
+      >
+        {children ?? (
+          <>
+            <BrainIcon className="size-4" />
+            {getThinkingMessage(isStreaming, duration)}
+            <ChevronDownIcon
+              className={cn("size-4 transition-transform", isOpen ? "rotate-180" : "rotate-0")}
+            />
+          </>
+        )}
+      </CollapsibleTrigger>
+    );
+  }
+);
 
 export const ReasoningContent = memo(({ className, children, ...props }) => (
   <CollapsibleContent

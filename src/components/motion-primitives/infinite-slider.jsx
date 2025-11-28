@@ -20,6 +20,7 @@ export function InfiniteSlider({
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [key, setKey] = useState(0);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: "This is needed."
   useEffect(() => {
     let controls;
     const size = direction === "horizontal" ? width : height;

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export const Conversation = ({ className, ...props }) => (
   <StickToBottom
-    className={cn("relative flex-1 overflow-y-auto", className)}
+    className={cn("relative flex-1 overflow-y-hidden", className)}
     initial="smooth"
     resize="smooth"
     role="log"

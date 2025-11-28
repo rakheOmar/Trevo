@@ -192,6 +192,7 @@ export function AudioPlayerProvider({ children }) {
   const isBuffering =
     readyState < ReadyState.HAVE_FUTURE_DATA && networkState === NetworkState.NETWORK_LOADING;
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: "This is needed."
   const api = useMemo(
     () => ({
       ref: audioRef,

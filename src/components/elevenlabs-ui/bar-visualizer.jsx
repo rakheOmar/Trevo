@@ -37,7 +37,7 @@ export function useAudioVolume(mediaStream, options = { fftSize: 32, smoothingTi
   const volumeRef = useRef(0);
   const frameId = useRef(undefined);
 
-  // Memoize options to prevent unnecessary re-renders
+  // biome-ignore lint/correctness/useExhaustiveDependencies: "This is needed."
   const memoizedOptions = useMemo(
     () => options,
     [options.fftSize, options.smoothingTimeConstant, options.minDecibels, options.maxDecibels]
@@ -114,6 +114,7 @@ const normalizeDb = (value) => {
  * @returns Array of volume levels for each frequency band
  */
 export function useMultibandVolume(mediaStream, options = {}) {
+  // biome-ignore lint/correctness/useExhaustiveDependencies: "This is needed."
   const opts = useMemo(
     () => ({ ...multibandDefaults, ...options }),
     [

@@ -1,5 +1,3 @@
-/** biome-ignore-all lint/nursery/useImageSize: "size will be handled by props" */
-
 import { cn } from "@/lib/utils";
 
 export const Image = ({ base64, uint8Array, mediaType, ...props }) => (

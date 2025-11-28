@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 export const Message = ({ className, from, ...props }) => (
   <div
     className={cn(
-      "group flex w-full max-w-[80%] gap-2",
+      "group flex w-full max-w-[80%] flex-col gap-2",
       from === "user" ? "is-user ml-auto justify-end" : "is-assistant",
       className
     )}

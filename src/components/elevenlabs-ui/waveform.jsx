@@ -353,7 +353,7 @@ export const AudioScrubber = ({
     setIsDragging(true);
     handleScrub(e.clientX);
   };
-
+  // biome-ignore lint/correctness/useExhaustiveDependencies: "This is needed."
   useEffect(() => {
     if (!isDragging) return;
 

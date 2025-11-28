@@ -1,67 +1,73 @@
-import { useRef, useState } from "react"
-import { Link } from "react-router-dom"
-import { BlackIcon, WhiteIcon } from "@/components/Logo"
-import { Button } from "@/components/ui/button"
-import { NAV_LINKS } from "@/config/nav"
-import gsap from "gsap"
-import { useGSAP } from "@gsap/react"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { Menu, X } from "lucide-react"
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Menu, X } from "lucide-react";
+import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
+import { BlackIcon, WhiteIcon } from "@/components/Logo";
+import { Button } from "@/components/ui/button";
+import { NAV_LINKS } from "@/config/nav";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
 const NavBar = () => {
-  const navRef = useRef(null)
-  const containerRef = useRef(null)
-  const mobileMenuRef = useRef(null)
-  const [open, setOpen] = useState(false)
+  const navRef = useRef(null);
+  const containerRef = useRef(null);
+  const mobileMenuRef = useRef(null);
+  const [open, setOpen] = useState(false);
+
+  useGSAP(
+    () => {
+      const scrolled = {
+        backgroundColor: "rgba(0,0,0,0.75)",
+        backdropFilter: "blur(16px)",
+        borderColor: "rgba(255,255,255,0.1)",
+        boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
+      };
+
+      const topState = {
+        backgroundColor: "transparent",
+        backdropFilter: "blur(0px)",
+        borderColor: "transparent",
+        boxShadow: "none",
+      };
+
+      ScrollTrigger.create({
+        start: "top top",
+        end: 99999,
+        onUpdate: (self) => {
+          if (self.scroll() > 10) {
+            gsap.to(containerRef.current, { ...scrolled, duration: 0.25 });
+            gsap.to(".nav-link", { color: "white", duration: 0.25 });
+            gsap.to(".icon-black", { opacity: 0, duration: 0.25 });
+            gsap.to(".icon-white", { opacity: 1, duration: 0.25 });
+          } else {
+            gsap.to(containerRef.current, { ...topState, duration: 0.25 });
+            gsap.to(".nav-link", { color: "black", duration: 0.25 });
+            gsap.to(".icon-black", { opacity: 1, duration: 0.25 });
+            gsap.to(".icon-white", { opacity: 0, duration: 0.25 });
+          }
+        },
+      });
+    },
+    { scope: navRef }
+  );
 
   useGSAP(() => {
-    const scrolled = {
-      backgroundColor: "rgba(0,0,0,0.75)",
-      backdropFilter: "blur(16px)",
-      borderColor: "rgba(255,255,255,0.1)",
-      boxShadow: "0 4px 6px -1px rgba(0,0,0,0.1)",
-    }
-
-    const topState = {
-      backgroundColor: "transparent",
-      backdropFilter: "blur(0px)",
-      borderColor: "transparent",
-      boxShadow: "none",
-    }
-
-    ScrollTrigger.create({
-      start: "top top",
-      end: 99999,
-      onUpdate: (self) => {
-        if (self.scroll() > 10) {
-          gsap.to(containerRef.current, { ...scrolled, duration: 0.25 })
-          gsap.to(".nav-link", { color: "white", duration: 0.25 })
-          gsap.to(".icon-black", { opacity: 0, duration: 0.25 })
-          gsap.to(".icon-white", { opacity: 1, duration: 0.25 })
-        } else {
-          gsap.to(containerRef.current, { ...topState, duration: 0.25 })
-          gsap.to(".nav-link", { color: "black", duration: 0.25 })
-          gsap.to(".icon-black", { opacity: 1, duration: 0.25 })
-          gsap.to(".icon-white", { opacity: 0, duration: 0.25 })
-        }
-      },
-    })
-  }, { scope: navRef })
-
-  useGSAP(() => {
-    if (!mobileMenuRef.current) return
+    if (!mobileMenuRef.current) return;
     gsap.to(mobileMenuRef.current, {
       height: open ? "auto" : 0,
       opacity: open ? 1 : 0,
       duration: 0.25,
       ease: "power2.inOut",
-    })
-  }, [open])
+    });
+  }, [open]);
 
   return (
-    <nav ref={navRef} className="fixed inset-x-0 top-6 z-50 mx-auto w-full px-4 md:px-0 md:max-w-[75%]">
+    <nav
+      ref={navRef}
+      className="fixed inset-x-0 top-6 z-50 mx-auto w-full px-4 md:px-0 md:max-w-[75%]"
+    >
       <div
         ref={containerRef}
         className="flex items-center justify-between rounded-xl px-4 py-3 border"
@@ -90,7 +96,11 @@ const NavBar = () => {
 
         <div className="flex items-center gap-3">
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" className="nav-link rounded-full text-base text-black hover:bg-black/10" asChild>
+            <Button
+              variant="ghost"
+              className="nav-link rounded-full text-base text-black hover:bg-black/10"
+              asChild
+            >
               <Link to="/login">Login</Link>
             </Button>
             <Button className="rounded-full px-6" asChild>
@@ -123,7 +133,11 @@ const NavBar = () => {
             </Link>
           ))}
           <div className="flex flex-col gap-3 pt-2">
-            <Button variant="ghost" className="nav-link rounded-full text-base text-white hover:bg-white/10" asChild>
+            <Button
+              variant="ghost"
+              className="nav-link rounded-full text-base text-white hover:bg-white/10"
+              asChild
+            >
               <Link to="/login">Login</Link>
             </Button>
             <Button className="rounded-full px-6" asChild>
@@ -133,7 +147,7 @@ const NavBar = () => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;

@@ -73,6 +73,7 @@ function useAnimation(frames, options) {
     };
   }, [frames, isPlaying, options.fps, options.loop, options.onFrame]);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: "This is needed."
   useEffect(() => {
     setFrameIndex(0);
     setIsPlaying(options.autoplay);

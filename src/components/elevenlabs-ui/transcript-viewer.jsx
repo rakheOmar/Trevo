@@ -56,6 +56,7 @@ function TranscriptViewerContainer({
 
   const { audioRef } = viewerState;
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: "This is needed."
   const audioProps = useMemo(
     () => ({
       ref: audioRef,
