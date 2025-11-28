@@ -5,7 +5,6 @@ import { Toaster } from "sonner";
 // COMPONENTS
 import Navbar from "@/components/blocks/Navbar/Navbar";
 import FooterSection from "@/components/Footer";
-import Dashboard from "@/pages/Dashboard";
 import ForgotPass from "@/pages/ForgotPass";
 // PAGES
 import Home from "@/pages/Home";
@@ -62,7 +61,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPass />} />
           {/* PROTECTED */}
-          <Route path="/dashboard" element={<Dashboard />} />
+          {/* NONE */}
         </Routes>
         <SpeedInsights />
         <Analytics />

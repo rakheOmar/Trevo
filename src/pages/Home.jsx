@@ -1,5 +1,5 @@
 import DiagonalStripedBar from "@/components/blocks/Home/DiagonalStripedBar";
-import HeroSection from "@/components/blocks/Home/HeroSection2";
+import HeroSection from "@/components/blocks/Home/HeroSection";
 import LogoCloud from "@/components/blocks/Home/LogoScroll";
 import Pricing from "@/components/blocks/Home/PricingSection";
 
