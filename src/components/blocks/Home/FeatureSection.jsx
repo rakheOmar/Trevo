@@ -10,21 +10,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
-    title: "Time Unfolded",
+    title: "Smart Matching",
     description:
-      "Automate tasks and reclaim hours, your AI assistant turns routine into seconds so you can focus on growth.",
+      "Forget manual cross-referencing. Trevo matches invoices to bank transactions instantly, highlighting only what needs your attention.",
     image: "/feat1.png",
   },
   {
-    title: "Words That Flow",
+    title: "Anomaly Detection",
     description:
-      "Drafts, blogs, and emails written with clarity and speed — the elegance of language without the struggle.",
+      "Catch duplicate payments, pricing errors, and subscription creeps before cash leaves your account. Total control, zero effort.",
     image: "/feat2.png",
   },
   {
-    title: "A Silent Guide",
+    title: "One-Click Sync",
     description:
-      "Always present to keep you focused — suggestions, reminders, and insights right when you need them.",
+      "Push verified financial data directly to Xero, QuickBooks, or NetSuite. Close your month-end in minutes, not days.",
     image: "/feat3.png",
   },
 ];
@@ -77,13 +77,13 @@ const FeaturesSection = () => {
             className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
           >
             <HugeiconsIcon icon={SparklesIcon} size={16} className="text-neutral-300" />
-            Features
+            Automated Reconciliation
           </Badge>
         </div>
 
         <h2 className="anim-header text-3xl font-medium tracking-tight text-white md:text-4xl">
-          Harness invisible power{" "}
-          <span className="text-neutral-500">to write faster, focus deeper, and save hours.</span>
+          Your books, balanced on autopilot.{" "}
+          <span className="text-neutral-500">Eliminate manual data entry, catch errors instantly, and close faster.</span>
         </h2>
       </div>
 

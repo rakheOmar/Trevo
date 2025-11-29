@@ -46,7 +46,7 @@ const FinalCTA = () => {
         <div className="absolute inset-0 z-0">
           <img
             src="/CTA.png"
-            alt="AI Background"
+            alt="Trevo Dashboard Background"
             className="h-full w-full object-cover opacity-60 transition-opacity duration-500 group-hover:opacity-50"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/40 to-transparent" />
@@ -54,12 +54,12 @@ const FinalCTA = () => {
 
         <div className="relative z-10 flex h-full max-w-2xl flex-col items-start justify-end p-6 text-left md:p-12">
           <h2 className="anim-text mb-4 text-3xl font-medium tracking-tight text-white md:text-4xl">
-            Step into the future,
+            Stop chasing receipts,
             <br />
-            guided by AI clarity
+            start chasing growth
           </h2>
           <p className="anim-text mb-8 max-w-md text-sm text-white/80 md:text-base">
-            Experience the tool right now. Just dive in and see what AI can do for you.
+            Experience the difference of automated reconciliation. Sync your data and see the results instantly.
           </p>
           <div className="anim-button">
             <Button
@@ -67,7 +67,7 @@ const FinalCTA = () => {
               className="w-fit rounded-full shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
               size="lg"
             >
-              <Link to="/signup">Try it now</Link>
+              <Link to="/signup">Start Free Trial</Link>
             </Button>
           </div>
         </div>

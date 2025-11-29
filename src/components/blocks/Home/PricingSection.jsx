@@ -16,43 +16,43 @@ const plans = [
     name: "Starter",
     priceMonthly: 0,
     priceYearly: 0,
-    description: "Perfect to explore AI with essential tools for individuals and small projects.",
+    description: "Essential reconciliation tools for freelancers and small setups.",
     ctaText: "Start for Free",
     buttonVariant: "secondary",
     features: [
-      { text: "Basic access to AI core", included: true },
-      { text: "Limited prompts per month", included: true },
-      { text: "Community support", included: true },
+      { text: "Up to 50 transactions/mo", included: true },
+      { text: "Basic PDF export", included: true },
+      { text: "7-day data history", included: true },
     ],
   },
   {
     id: "pro",
-    name: "Pro",
-    priceMonthly: 29,
-    priceYearly: 24,
+    name: "Growth",
+    priceMonthly: 49,
+    priceYearly: 39,
     description:
-      "Advanced features and flexibility to scale productivity and handle bigger workloads.",
-    ctaText: "Upgrade to Pro",
+      "Automated matching and bank feeds for growing finance teams.",
+    ctaText: "Upgrade to Growth",
     isPopular: true,
     buttonVariant: "primary",
     features: [
-      { text: "Unlimited AI prompts", included: true },
-      { text: "Priority response time", included: true },
-      { text: "Early access to new models", included: true },
+      { text: "Unlimited transactions", included: true },
+      { text: "Direct Xero & QB Sync", included: true },
+      { text: "Smart Anomaly Detection", included: true },
     ],
   },
   {
-    id: "lifetime",
-    name: "Lifetime",
+    id: "enterprise",
+    name: "Enterprise",
     priceMonthly: "Custom",
     priceYearly: "Custom",
-    description: "Full power with custom options, priority support, and team-ready collaboration.",
+    description: "Custom ERP integrations, SSO, and dedicated support for volume.",
     ctaText: "Contact Sales",
     buttonVariant: "secondary",
     features: [
-      { text: "Dedicated workspace", included: true },
-      { text: "Advanced model tuning", included: true },
-      { text: "Premium support & SLA", included: true },
+      { text: "NetSuite & SAP Integration", included: true },
+      { text: "Multi-entity support", included: true },
+      { text: "Dedicated Success Manager", included: true },
     ],
   },
 ];
@@ -106,7 +106,7 @@ const PricingSection = () => {
           </div>
 
           <h2 className="anim-header text-3xl font-medium tracking-tight text-white md:text-4xl">
-            Choose the plan <span className="text-neutral-500">that matches your ambition</span>
+            Choose the plan <span className="text-neutral-500">that fits your finance team</span>
           </h2>
         </div>
 

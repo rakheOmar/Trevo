@@ -5,34 +5,34 @@ import { ThemedLogo } from "@/components/Logo";
 export const siteConfig = {
   hero: {
     description:
-      "AI assistant designed to streamline your digital workflows and handle mundane tasks, so you can focus on what truly matters",
+      "Automated invoice reconciliation for modern finance teams. Sync data, detect anomalies, and close your books with absolute confidence.",
   },
   footerLinks: [
     {
       title: "Company",
       links: [
-        { id: 1, title: "About", url: "#" },
-        { id: 2, title: "Contact", url: "#" },
-        { id: 3, title: "Blog", url: "#" },
-        { id: 4, title: "Story", url: "#" },
+        { id: 1, title: "About Us", url: "#" },
+        { id: 2, title: "Careers", url: "#" },
+        { id: 3, title: "Security", url: "#" },
+        { id: 4, title: "Contact", url: "#" },
       ],
     },
     {
-      title: "Products",
+      title: "Product",
       links: [
-        { id: 5, title: "Company", url: "#" },
-        { id: 6, title: "Product", url: "#" },
-        { id: 7, title: "Press", url: "#" },
-        { id: 8, title: "More", url: "#" },
+        { id: 5, title: "Features", url: "#" },
+        { id: 6, title: "Integrations", url: "#" },
+        { id: 7, title: "Pricing", url: "#" },
+        { id: 8, title: "Enterprise", url: "#" },
       ],
     },
     {
       title: "Resources",
       links: [
-        { id: 9, title: "Press", url: "#" },
-        { id: 10, title: "Careers", url: "#" },
-        { id: 11, title: "Newsletters", url: "#" },
-        { id: 12, title: "More", url: "#" },
+        { id: 9, title: "Help Center", url: "#" },
+        { id: 10, title: "API Docs", url: "#" },
+        { id: 11, title: "Blog", url: "#" },
+        { id: 12, title: "Status", url: "#" },
       ],
     },
   ],

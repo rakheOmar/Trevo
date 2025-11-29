@@ -37,37 +37,37 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
 
 const leftColumnFAQs = [
   {
-    question: "What is this AI platform designed for?",
+    question: "How does the automatic matching work?",
     answer:
-      "Our platform is designed to supercharge your productivity by integrating advanced AI tools directly into your workflow, helping you generate content, analyze data, and automate tasks with ease.",
+      "Trevo compares your invoices, purchase orders, and delivery receipts using a 3-way matching algorithm. It automatically approves perfect matches and flags discrepancies for your review.",
   },
   {
-    question: "Do I need technical knowledge to use it?",
+    question: "Does it integrate with my ERP?",
     answer:
-      "Not at all. We've built an intuitive interface that allows anyone to harness the power of AI without needing to write code or understand complex machine learning concepts.",
+      "Yes. We support native two-way sync with Xero, QuickBooks, NetSuite, and Sage Intacct. Your general ledger is updated in real-time without manual CSV imports.",
   },
   {
-    question: "Which AI models power the tool?",
+    question: "Is my financial data secure?",
     answer:
-      "We leverage a hybrid engine combining the speed of lightweight models with the reasoning capabilities of large language models to ensure the best results for every task.",
+      "Security is our top priority. We use bank-grade 256-bit encryption for all data in transit and at rest, and we are SOC2 Type II compliant.",
   },
 ];
 
 const rightColumnFAQs = [
   {
-    question: "Is there a free plan available?",
+    question: "What happens if an invoice isn't matched?",
     answer:
-      "Yes, our Starter plan is completely free and gives you access to essential tools and a limited number of prompts per month so you can explore the platform.",
+      "Unmatched items are sent to an 'Exception Queue'. You can manually approve them or set custom rules so Trevo learns how to handle similar edge cases in the future.",
   },
   {
-    question: "Can I use this for business purposes?",
+    question: "Can I try it with my own data?",
     answer:
-      "Absolutely. Our Pro and Enterprise plans are designed for freelancers, startups, and teams scaling AI projects, offering commercial usage rights and priority support.",
+      "Absolutely. Our 14-day free trial allows you to sync your historical data and see how many past errors or missed duplicates Trevo would have caught.",
   },
   {
-    question: "How can I get support if I have issues?",
+    question: "Do you support multi-entity organizations?",
     answer:
-      "We offer comprehensive support through our community forum for all users, and priority email or chat support for our Pro and Lifetime plan subscribers.",
+      "Yes, our Enterprise plan is built for complex structures. You can manage reconciliation across multiple subsidiaries and currencies from a single dashboard.",
   },
 ];
 
@@ -119,12 +119,12 @@ const FAQSection = () => {
             className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
           >
             <HugeiconsIcon icon={HelpCircleIcon} size={16} className="text-neutral-300" />
-            FAQ
+            Common Questions
           </Badge>
         </div>
 
         <h2 className="anim-header text-3xl font-medium tracking-tight text-white md:text-4xl">
-          Your questions, <span className="text-neutral-500">answered with clarity</span>
+          Everything you need to know <span className="text-neutral-500">about automating your books.</span>
         </h2>
       </div>
 

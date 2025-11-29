@@ -47,17 +47,17 @@ export default function HeroSection() {
         ref={textRef}
         className="absolute top-1/4 left-[12.5%] -translate-y-1/2 w-[75%] flex flex-col text-left px-4 z-10"
       >
-        <h1 className="text-4xl md:text-6xl tracking-tighter leading-tight text-black">
-          AI for teams
-          <br />
-          shaping the future.
-        </h1>
+<h1 className="text-4xl md:text-6xl tracking-tighter leading-tight text-black">
+  Plug your revenue leaks
+  <br />
+  automatically.
+</h1>
 
-        <p className="text-[#31313c] text-base md:text-lg mt-4 max-w-[480px]">
-          Build, connect and scale intelligent
-          <br />
-          workflows — all from one place.
-        </p>
+<p className="text-[#31313c] text-base md:text-lg mt-4 max-w-[480px]">
+  Trevo reconciles your COD settlements in real-time.
+  <br />
+  Recover lost margins from unverified returns today.
+</p>
 
         <Button
           className="rounded-full mt-6 text-lg px-6 py-5 w-fit shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
