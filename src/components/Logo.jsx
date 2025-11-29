@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 export function ThemedLogo() {
   return (
     <div className="flex items-center gap-2">
@@ -24,11 +25,13 @@ export function BlackIcon() {
   );
 }
 
-export function WhiteIcon() {
+export function WhiteIcon({ className }) {
   return (
-    <>
-      <img src="/trevo_icon_dark.svg" alt="Trevo Icon" className="w-auto h-6 block" />{" "}
-    </>
+    <img
+      src="/trevo_icon_dark.svg"
+      alt="Trevo Icon"
+      className={cn("block h-6 w-auto", className)}
+    />
   );
 }
 

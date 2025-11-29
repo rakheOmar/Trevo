@@ -1,7 +1,5 @@
-"use client";
-
-import { ChevronRight } from "lucide-react";
-
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import {
   SidebarGroup,
@@ -29,9 +27,21 @@ export function NavMain({ items }) {
             <SidebarMenuItem>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon />}
+                  {item.icon && (
+                    <HugeiconsIcon
+                      icon={item.icon}
+                      size={20}
+                      strokeWidth={1.5}
+                      color="currentColor"
+                    />
+                  )}
                   <span>{item.title}</span>
-                  <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                  <HugeiconsIcon
+                    icon={ArrowRight01Icon}
+                    size={16}
+                    strokeWidth={2}
+                    className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                  />
                 </SidebarMenuButton>
               </CollapsibleTrigger>
               <CollapsibleContent>

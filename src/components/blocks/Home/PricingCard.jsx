@@ -1,19 +1,46 @@
-import { CheckIcon } from "lucide-react";
-import React from "react";
+import { useGSAP } from "@gsap/react";
+import { Tick02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { Button } from "@/components/ui/button";
 
-const PricingCard = ({ plan, isYearly }) => {
+gsap.registerPlugin(ScrollTrigger);
+
+const PricingCard = ({ plan, isYearly, index = 0 }) => {
+  const cardRef = useRef(null);
   const price = isYearly ? plan.priceYearly : plan.priceMonthly;
   const isCustom = typeof price === "string";
 
+  useGSAP(
+    () => {
+      gsap.from(cardRef.current, {
+        scrollTrigger: {
+          trigger: cardRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+        y: 50,
+        opacity: 0,
+        scale: 0.9,
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: "back.out(1.5)",
+      });
+    },
+    { scope: cardRef }
+  );
+
   return (
     <div
+      ref={cardRef}
       className={`
-      relative flex h-full flex-col border p-6 bg-transparent
+      relative flex h-full flex-col border p-6 
       ${
         plan.isPopular
-          ? "border-neutral-700 shadow-2xl shadow-neutral-900/50 bg-white/2"
-          : "border-white/10"
+          ? "border-neutral-700 bg-white/5 shadow-2xl shadow-neutral-900/50"
+          : "border-white/10 bg-transparent"
       }
     `}
     >
@@ -64,7 +91,7 @@ const PricingCard = ({ plan, isYearly }) => {
           <li key={idx} className="flex items-start gap-3 text-sm text-neutral-400">
             <div className="mt-0.5 shrink-0">
               {feature.included ? (
-                <CheckIcon className="h-4 w-4 text-white" />
+                <HugeiconsIcon icon={Tick02Icon} size={16} className="text-white" strokeWidth={2} />
               ) : (
                 <div className="h-4 w-4 border border-neutral-800" />
               )}

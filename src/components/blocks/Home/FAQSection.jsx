@@ -1,10 +1,16 @@
-import { HelpCircle, Plus } from "lucide-react";
-import { useState } from "react";
+import { useGSAP } from "@gsap/react";
+import { HelpCircleIcon, PlusSignIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const FAQItem = ({ question, answer, isOpen, onClick }) => {
   return (
-    <div className="border-b border-white/10 transition-colors duration-300 hover:border-white/50">
+    <div className="faq-item border-b border-white/10 transition-colors duration-300 hover:border-white/50">
       <button
         onClick={onClick}
         className="group flex w-full items-center justify-between gap-4 py-6 text-left focus:outline-none"
@@ -15,7 +21,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }) => {
             isOpen ? "rotate-45" : "rotate-0"
           }`}
         >
-          <Plus strokeWidth={1.5} className="h-6 w-6" />
+          <HugeiconsIcon icon={PlusSignIcon} size={24} strokeWidth={1.5} />
         </span>
       </button>
       <div
@@ -67,23 +73,57 @@ const rightColumnFAQs = [
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const containerRef = useRef(null);
 
   const handleToggle = (id) => {
     setOpenIndex(openIndex === id ? null : id);
   };
 
-  return (
-    <section id="faq" className="mx-auto w-[79%] px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mb-16 flex flex-col items-start gap-6">
-        <Badge
-          variant="outline"
-          className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
-        >
-          <HelpCircle className="h-4 w-4" />
-          FAQ
-        </Badge>
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
 
-        <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
+      tl.from(".anim-header", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.1,
+      }).from(
+        ".faq-item",
+        {
+          y: 20,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+          stagger: 0.1,
+        },
+        "-=0.4"
+      );
+    },
+    { scope: containerRef }
+  );
+
+  return (
+    <section ref={containerRef} id="faq" className="mx-auto w-[79%] px-4 py-24 sm:px-6 lg:px-8">
+      <div className="mb-16 flex flex-col items-start gap-6">
+        <div className="anim-header">
+          <Badge
+            variant="outline"
+            className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
+          >
+            <HugeiconsIcon icon={HelpCircleIcon} size={16} className="text-neutral-300" />
+            FAQ
+          </Badge>
+        </div>
+
+        <h2 className="anim-header text-3xl font-medium tracking-tight text-white md:text-4xl">
           Your questions, <span className="text-neutral-500">answered with clarity</span>
         </h2>
       </div>

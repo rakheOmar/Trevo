@@ -1,8 +1,14 @@
-import { Ticket } from "lucide-react";
-import React, { useState } from "react";
+import { useGSAP } from "@gsap/react";
+import { Ticket01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Switch } from "@/components/ui/switch";
 import PricingCard from "./PricingCard";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const plans = [
   {
@@ -53,34 +59,71 @@ const plans = [
 
 const PricingSection = () => {
   const [isYearly, setIsYearly] = useState(false);
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.from(".anim-header", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.1,
+      }).from(
+        ".anim-toggle",
+        {
+          y: 20,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        },
+        "-=0.4"
+      );
+    },
+    { scope: containerRef }
+  );
 
   return (
-    <section id="pricing">
+    <section id="pricing" ref={containerRef}>
       <div className="mx-auto w-[79%] px-4 py-24 sm:px-6 lg:px-8">
         <div className="mb-16 flex flex-col items-start gap-6">
-          <Badge
-            variant="outline"
-            className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
-          >
-            <Ticket className="h-4 w-4" />
-            Pricing
-          </Badge>
+          <div className="anim-header">
+            <Badge
+              variant="outline"
+              className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
+            >
+              <HugeiconsIcon icon={Ticket01Icon} size={16} className="text-neutral-300" />
+              Pricing
+            </Badge>
+          </div>
 
-          <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
+          <h2 className="anim-header text-3xl font-medium tracking-tight text-white md:text-4xl">
             Choose the plan <span className="text-neutral-500">that matches your ambition</span>
           </h2>
         </div>
 
-        <div className="mb-10 flex items-center justify-start gap-4">
+        <div className="anim-toggle mb-10 flex items-center justify-start gap-4">
           <span
-            className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-neutral-500"}`}
+            className={`text-sm font-medium transition-colors ${
+              !isYearly ? "text-white" : "text-neutral-500"
+            }`}
           >
             Monthly
           </span>
           <Switch checked={isYearly} onCheckedChange={setIsYearly} />
           <div className="flex items-center gap-2">
             <span
-              className={`text-sm font-medium transition-colors ${isYearly ? "text-white" : "text-neutral-500"}`}
+              className={`text-sm font-medium transition-colors ${
+                isYearly ? "text-white" : "text-neutral-500"
+              }`}
             >
               Yearly
             </span>
@@ -91,8 +134,8 @@ const PricingSection = () => {
         </div>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {plans.map((plan) => (
-            <PricingCard key={plan.id} plan={plan} isYearly={isYearly} />
+          {plans.map((plan, index) => (
+            <PricingCard key={plan.id} plan={plan} isYearly={isYearly} index={index} />
           ))}
         </div>
       </div>

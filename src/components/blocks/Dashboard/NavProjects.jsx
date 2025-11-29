@@ -1,4 +1,10 @@
-import { Folder, Forward, MoreHorizontal, Trash2 } from "lucide-react";
+import {
+  Delete02Icon,
+  Folder01Icon,
+  MoreHorizontalIcon,
+  Share08Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 import {
   DropdownMenu,
@@ -28,14 +34,16 @@ export function NavProjects({ projects }) {
           <SidebarMenuItem key={item.name}>
             <SidebarMenuButton asChild>
               <a href={item.url}>
-                <item.icon />
+                {/* Fixed: Use wrapper for dynamic icon objects */}
+                <HugeiconsIcon icon={item.icon} size={20} strokeWidth={1.5} />
                 <span>{item.name}</span>
               </a>
             </SidebarMenuButton>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <SidebarMenuAction showOnHover>
-                  <MoreHorizontal />
+                  {/* Fixed: Replaced Lucide MoreHorizontal */}
+                  <HugeiconsIcon icon={MoreHorizontalIcon} size={16} />
                   <span className="sr-only">More</span>
                 </SidebarMenuAction>
               </DropdownMenuTrigger>
@@ -45,16 +53,19 @@ export function NavProjects({ projects }) {
                 align={isMobile ? "end" : "start"}
               >
                 <DropdownMenuItem>
-                  <Folder className="text-muted-foreground" />
+                  {/* Fixed: Replaced Lucide Folder */}
+                  <HugeiconsIcon icon={Folder01Icon} size={16} className="text-muted-foreground" />
                   <span>View Project</span>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
-                  <Forward className="text-muted-foreground" />
+                  {/* Fixed: Replaced Lucide Forward with Share08 */}
+                  <HugeiconsIcon icon={Share08Icon} size={16} className="text-muted-foreground" />
                   <span>Share Project</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <Trash2 className="text-muted-foreground" />
+                  {/* Fixed: Replaced Lucide Trash2 with Delete02 */}
+                  <HugeiconsIcon icon={Delete02Icon} size={16} className="text-muted-foreground" />
                   <span>Delete Project</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -63,7 +74,11 @@ export function NavProjects({ projects }) {
         ))}
         <SidebarMenuItem>
           <SidebarMenuButton className="text-sidebar-foreground/70">
-            <MoreHorizontal className="text-sidebar-foreground/70" />
+            <HugeiconsIcon
+              icon={MoreHorizontalIcon}
+              size={20}
+              className="text-sidebar-foreground/70"
+            />
             <span>More</span>
           </SidebarMenuButton>
         </SidebarMenuItem>

@@ -1,5 +1,12 @@
-import { Sparkle } from "lucide-react";
+import { useGSAP } from "@gsap/react";
+import { SparklesIcon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
 import { Badge } from "@/components/ui/badge";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
@@ -23,18 +30,58 @@ const features = [
 ];
 
 const FeaturesSection = () => {
-  return (
-    <section id="features" className="mx-auto w-[79%] px-4 py-24 sm:px-6 lg:px-8">
-      <div className="mb-16 flex flex-col items-start gap-6">
-        <Badge
-          variant="outline"
-          className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
-        >
-          <Sparkle className="h-4 w-4" />
-          Features
-        </Badge>
+  const containerRef = useRef(null);
 
-        <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
+  useGSAP(
+    () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      tl.from(".anim-header", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        ease: "power3.out",
+        stagger: 0.15,
+      }).from(
+        ".anim-card",
+        {
+          y: 50,
+          opacity: 0,
+          scale: 0.9,
+          duration: 0.8,
+          ease: "back.out(1.5)",
+          stagger: 0.2,
+        },
+        "-=0.6"
+      );
+    },
+    { scope: containerRef }
+  );
+
+  return (
+    <section
+      ref={containerRef}
+      id="features"
+      className="mx-auto w-[79%] px-4 py-24 sm:px-6 lg:px-8"
+    >
+      <div className="mb-16 flex flex-col items-start gap-6">
+        <div className="anim-header">
+          <Badge
+            variant="outline"
+            className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
+          >
+            <HugeiconsIcon icon={SparklesIcon} size={16} className="text-neutral-300" />
+            Features
+          </Badge>
+        </div>
+
+        <h2 className="anim-header text-3xl font-medium tracking-tight text-white md:text-4xl">
           Harness invisible power{" "}
           <span className="text-neutral-500">to write faster, focus deeper, and save hours.</span>
         </h2>
@@ -42,8 +89,8 @@ const FeaturesSection = () => {
 
       <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
         {features.map((feature, idx) => (
-          <div key={idx} className="group flex flex-col gap-6">
-            <div className="relative aspect-9/10 w-full overflow-hidden bg-neutral-900">
+          <div key={idx} className="anim-card group flex flex-col gap-6">
+            <div className="aspect-9/10 relative w-full overflow-hidden bg-neutral-900">
               <img
                 src={feature.image}
                 alt={feature.title}

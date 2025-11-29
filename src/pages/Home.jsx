@@ -12,15 +12,15 @@ export default function Home() {
       <HeroSection />
       <DiagonalStripedBar />
       <LogoSection />
-      <div className="border-b">
+      <div className="border-b border-[#2c2c30]">
         <DiagonalStripedBar />
       </div>
       <FeaturesSection />
-      <div className="border-t border-b">
+      <div className="border-t border-b border-[#2c2c30]">
         <DiagonalStripedBar />
       </div>
       <PricingSection />
-      <div className="border-t border-b">
+      <div className="border-t border-b border-[#2c2c30]">
         <DiagonalStripedBar />
       </div>
       <FAQSection />
