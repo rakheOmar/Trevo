@@ -26,6 +26,7 @@ export default function HeroSection() {
       });
 
       tl.to(bgRef.current, { yPercent: 30, ease: "none" }, 0);
+
       tl.to(textRef.current, { yPercent: 60, opacity: 0, ease: "none" }, 0);
     },
     { scope: containerRef }
@@ -38,38 +39,38 @@ export default function HeroSection() {
           ref={bgRef}
           src={Hero}
           alt="Hero"
-          className="h-[85vh] w-full object-cover md:h-auto md:min-h-[100vh]"
+          className="w-full h-auto object-cover min-h-[80vh]"
         />
       </div>
 
       <div
         ref={textRef}
-        className="absolute top-[240px] left-0 w-full flex flex-col px-6 z-10 items-center text-center md:top-1/4 md:left-[12.5%] md:w-[75%] md:items-start md:text-left md:px-4"
+        className="absolute top-1/4 left-[12.5%] -translate-y-1/2 w-[75%] flex flex-col text-left px-4 z-10"
       >
-        <h1 className="text-4xl tracking-tighter leading-tight text-black md:text-6xl">
+        <h1 className="text-4xl md:text-6xl tracking-tighter leading-tight text-black">
           AI for teams
           <br />
           shaping the future.
         </h1>
 
-        <p className="text-[#31313c] text-base mt-4 max-w-[480px] md:text-lg">
+        <p className="text-[#31313c] text-base md:text-lg mt-4 max-w-[480px]">
           Build, connect and scale intelligent
-          <br className="hidden md:block" />
+          <br />
           workflows — all from one place.
         </p>
 
         <Button
-          className="rounded-full mt-8 text-lg px-6 py-6 w-full shadow-[0_8px_20px_rgba(0,0,0,0.25)] md:w-fit md:mt-6 md:py-5"
+          className="rounded-full mt-6 text-lg px-6 py-5 w-fit shadow-[0_8px_20px_rgba(0,0,0,0.25)]"
           asChild
         >
-          <a href="/signup" className="flex items-center justify-center gap-2 text-sm">
+          <a href="/signup" className="flex items-center gap-2 text-sm">
             Get started
             <ChevronRight className="h-5 w-5" />
           </a>
         </Button>
       </div>
 
-      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[90%] z-20 md:w-[75%]">
+      <div className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[75%] z-20">
         <img src={Placeholder} alt="Placeholder" className="w-full h-auto block drop-shadow-2xl" />
       </div>
     </section>

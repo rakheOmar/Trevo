@@ -53,7 +53,7 @@ export default function LogoSection() {
           {logos.map((logo) => (
             <div
               key={logo.name}
-              className="flex aspect-[5/2] items-center justify-center border-b border-r border-[#1D1D1F] bg-background/50 p-4 md:p-8 transition-colors hover:bg-[#1D1D1F]/50"
+              className="flex aspect-5/2 items-center justify-center border-b border-r border-[#1D1D1F] bg-background/50 p-4 md:p-8 transition-colors hover:bg-[#1D1D1F]/50"
             >
               <img
                 src={logo.src}

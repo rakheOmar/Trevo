@@ -408,7 +408,7 @@ const Bar = React.memo(({ heightPct, isHighlighted, state }) => (
   <div
     data-highlighted={isHighlighted}
     className={cn(
-      "max-w-[12px] min-w-[8px] flex-1 transition-all duration-150",
+      "max-w-3 min-w-2 flex-1 transition-all duration-150",
       "rounded-full",
       "bg-border data-[highlighted=true]:bg-primary",
       state === "speaking" && "bg-primary",
