@@ -5,6 +5,7 @@ import {
   Command,
   Frame,
   GalleryVerticalEnd,
+  // biome-ignore lint/suspicious/noShadowRestrictedNames: default
   Map,
   PieChart,
   Settings2,

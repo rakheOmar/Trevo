@@ -94,6 +94,7 @@ export function PromptInputProvider({ initialInput: initialTextInput = "", child
   // ----- attachments state (global when wrapped)
   const [attachmentFiles, setAttachmentFiles] = useState([]);
   const fileInputRef = useRef(null);
+  // biome-ignore lint/suspicious/noEmptyBlockStatements: default
   const openRef = useRef(() => {});
 
   const add = useCallback((files) => {

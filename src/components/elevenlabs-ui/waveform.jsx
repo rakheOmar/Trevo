@@ -434,6 +434,7 @@ export const MicrophoneWaveform = ({
   const lastActiveDataRef = useRef([]);
   const transitionProgressRef = useRef(0);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: default
   useEffect(() => {
     if (processing && !active) {
       let time = 0;
@@ -673,6 +674,7 @@ export const LiveMicrophoneWaveform = ({
     return () => resizeObserver.disconnect();
   }, []);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: default
   useEffect(() => {
     if (!active) {
       if (mediaRecorderRef.current && mediaRecorderRef.current.state !== "inactive") {
@@ -777,6 +779,7 @@ export const LiveMicrophoneWaveform = ({
       if (scrubSourceRef.current) {
         try {
           scrubSourceRef.current.stop();
+          // biome-ignore lint/suspicious/noEmptyBlockStatements: default
         } catch {}
       }
 
@@ -810,6 +813,7 @@ export const LiveMicrophoneWaveform = ({
       if (sourceNodeRef.current) {
         try {
           sourceNodeRef.current.stop();
+          // biome-ignore lint/suspicious/noEmptyBlockStatements: default
         } catch {}
       }
 
@@ -1061,6 +1065,7 @@ export const LiveMicrophoneWaveform = ({
       if (scrubSourceRef.current) {
         try {
           scrubSourceRef.current.stop();
+          // biome-ignore lint/suspicious/noEmptyBlockStatements: default
         } catch {}
       }
     };

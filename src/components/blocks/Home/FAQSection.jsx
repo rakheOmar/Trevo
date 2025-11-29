@@ -73,7 +73,7 @@ const FAQSection = () => {
   };
 
   return (
-    <section id="faq" className="mx-auto w-[80%] px-4 py-24 sm:px-6 lg:px-8">
+    <section id="faq" className="mx-auto w-[79%] px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-16 flex flex-col items-start gap-6">
         <Badge
           variant="outline"
@@ -83,7 +83,7 @@ const FAQSection = () => {
           FAQ
         </Badge>
 
-        <h2 className="text-4xl font-medium tracking-tight text-white">
+        <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
           Your questions, <span className="text-neutral-500">answered with clarity</span>
         </h2>
       </div>

@@ -3,15 +3,16 @@ import DiagonalStripedBar from "@/components/blocks/Home/DiagonalStripedBar";
 import FAQSection from "@/components/blocks/Home/FAQSection";
 import FeaturesSection from "@/components/blocks/Home/FeatureSection";
 import HeroSection from "@/components/blocks/Home/HeroSection";
-import LogoCloud from "@/components/blocks/Home/LogoScroll";
+import LogoSection from "@/components/blocks/Home/LogoSection";
 import PricingSection from "@/components/blocks/Home/PricingSection";
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <LogoCloud />
-      <div className="border-t border-b">
+      <DiagonalStripedBar />
+      <LogoSection />
+      <div className="border-b">
         <DiagonalStripedBar />
       </div>
       <FeaturesSection />

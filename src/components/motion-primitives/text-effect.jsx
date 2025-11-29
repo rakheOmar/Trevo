@@ -1,3 +1,4 @@
+/** biome-ignore-all lint/correctness/noUnsafeOptionalChaining: default */
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";

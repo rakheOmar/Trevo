@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Menu, X } from "lucide-react";
 import { useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { BlackIcon, WhiteIcon } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/config/nav";
@@ -15,6 +15,25 @@ const NavBar = () => {
   const containerRef = useRef(null);
   const mobileMenuRef = useRef(null);
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const handleScroll = (e, href) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      setOpen(false);
+      const targetId = href.substring(1);
+      const element = document.getElementById(targetId);
+
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else if (location.pathname !== "/") {
+        navigate(`/${href}`);
+      }
+    } else {
+      setOpen(false);
+    }
+  };
 
   useGSAP(
     () => {
@@ -66,14 +85,14 @@ const NavBar = () => {
   return (
     <nav
       ref={navRef}
-      className="fixed inset-x-0 top-6 z-50 mx-auto w-full px-4 md:px-0 md:max-w-[75%]"
+      className="fixed inset-x-0 top-6 z-50 mx-auto w-full px-4 md:max-w-[75%] md:px-0"
     >
       <div
         ref={containerRef}
-        className="flex items-center justify-between rounded-xl px-4 py-3 border"
+        className="flex items-center justify-between rounded-xl border px-4 py-3"
         style={{ borderColor: "transparent", backgroundColor: "transparent" }}
       >
-        <Link to="/" className="relative flex items-center h-8 w-24">
+        <Link to="/" className="relative flex h-8 w-24 items-center">
           <div className="icon-white absolute left-0 top-1/2 -translate-y-1/2 opacity-0">
             <WhiteIcon />
           </div>
@@ -82,11 +101,12 @@ const NavBar = () => {
           </div>
         </Link>
 
-        <div className="hidden md:flex items-center gap-8 -translate-x-50 ">
+        <div className="hidden -translate-x-50 gap-8 md:flex md:items-center">
           {NAV_LINKS.map((item) => (
             <Link
               key={item.href}
               to={item.href}
+              onClick={(e) => handleScroll(e, item.href)}
               className="nav-link text-base font-medium text-black transition-opacity hover:opacity-70"
             >
               {item.label}
@@ -95,7 +115,7 @@ const NavBar = () => {
         </div>
 
         <div className="flex items-center gap-3">
-          <div className="hidden md:flex items-center gap-3">
+          <div className="hidden gap-3 md:flex md:items-center">
             <Button
               variant="ghost"
               className="nav-link rounded-full text-base text-black hover:bg-black/10"
@@ -110,7 +130,7 @@ const NavBar = () => {
 
           <button
             onClick={() => setOpen(!open)}
-            className="md:hidden p-2 rounded-lg flex items-center justify-center nav-link text-black"
+            className="nav-link flex items-center justify-center rounded-lg p-2 text-black md:hidden"
           >
             {open ? <X size={22} /> : <Menu size={22} />}
           </button>
@@ -119,14 +139,14 @@ const NavBar = () => {
 
       <div
         ref={mobileMenuRef}
-        className="md:hidden overflow-hidden h-0 opacity-0 mt-3 rounded-xl border border-white/10 bg-black/80 backdrop-blur-xl"
+        className="mt-3 h-0 overflow-hidden rounded-xl border border-white/10 bg-black/80 opacity-0 backdrop-blur-xl md:hidden"
       >
         <div className="flex flex-col gap-4 p-4">
           {NAV_LINKS.map((item) => (
             <Link
               key={item.href}
               to={item.href}
-              onClick={() => setOpen(false)}
+              onClick={(e) => handleScroll(e, item.href)}
               className="nav-link text-base font-medium text-white"
             >
               {item.label}

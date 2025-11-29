@@ -55,46 +55,48 @@ const PricingSection = () => {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <div className="mx-auto w-[80%] px-4 py-12 sm:px-6 lg:px-8">
-      <div className="mb-16 flex flex-col items-start gap-6">
-        <Badge
-          variant="outline"
-          className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
-        >
-          <Ticket className="h-4 w-4" />
-          Pricing
-        </Badge>
-
-        <h2 className="text-4xl font-medium tracking-tight text-white">
-          Choose the plan <span className="text-neutral-500">that matches your ambition</span>
-        </h2>
-      </div>
-
-      <div className="mb-10 flex items-center justify-start gap-4">
-        <span
-          className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-neutral-500"}`}
-        >
-          Monthly
-        </span>
-        <Switch checked={isYearly} onCheckedChange={setIsYearly} />
-        <div className="flex items-center gap-2">
-          <span
-            className={`text-sm font-medium transition-colors ${isYearly ? "text-white" : "text-neutral-500"}`}
+    <section id="pricing">
+      <div className="mx-auto w-[79%] px-4 py-24 sm:px-6 lg:px-8">
+        <div className="mb-16 flex flex-col items-start gap-6">
+          <Badge
+            variant="outline"
+            className="gap-2 rounded-full border-white/10 bg-transparent px-3 py-1.5 text-sm font-medium text-neutral-300 hover:bg-transparent"
           >
-            Yearly
+            <Ticket className="h-4 w-4" />
+            Pricing
+          </Badge>
+
+          <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
+            Choose the plan <span className="text-neutral-500">that matches your ambition</span>
+          </h2>
+        </div>
+
+        <div className="mb-10 flex items-center justify-start gap-4">
+          <span
+            className={`text-sm font-medium transition-colors ${!isYearly ? "text-white" : "text-neutral-500"}`}
+          >
+            Monthly
           </span>
-          <span className="inline-flex items-center border border-white/10 bg-[#1a1a1a] px-2.5 py-0.5 text-xs font-medium text-white">
-            20% OFF
-          </span>
+          <Switch checked={isYearly} onCheckedChange={setIsYearly} />
+          <div className="flex items-center gap-2">
+            <span
+              className={`text-sm font-medium transition-colors ${isYearly ? "text-white" : "text-neutral-500"}`}
+            >
+              Yearly
+            </span>
+            <span className="inline-flex items-center border border-white/10 bg-[#1a1a1a] px-2.5 py-0.5 text-xs font-medium text-white">
+              20% OFF
+            </span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {plans.map((plan) => (
+            <PricingCard key={plan.id} plan={plan} isYearly={isYearly} />
+          ))}
         </div>
       </div>
-
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {plans.map((plan) => (
-          <PricingCard key={plan.id} plan={plan} isYearly={isYearly} />
-        ))}
-      </div>
-    </div>
+    </section>
   );
 };
 

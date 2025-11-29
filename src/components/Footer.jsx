@@ -41,7 +41,7 @@ export const siteConfig = {
 export default function Footer() {
   return (
     <footer id="footer" className="flex w-full flex-col items-center pb-10 pt-10 bg-white/2">
-      <div className="w-[75%]">
+      <div className="w-[74%]">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between">
           <div className="mx-0 flex max-w-xs flex-col items-start justify-start gap-y-5">
             <Link to="/" className="flex items-center gap-2">

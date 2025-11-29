@@ -24,7 +24,7 @@ const features = [
 
 const FeaturesSection = () => {
   return (
-    <section id="about" className="mx-auto w-[80%] px-4 py-24 sm:px-6 lg:px-8">
+    <section id="features" className="mx-auto w-[79%] px-4 py-24 sm:px-6 lg:px-8">
       <div className="mb-16 flex flex-col items-start gap-6">
         <Badge
           variant="outline"
@@ -34,7 +34,7 @@ const FeaturesSection = () => {
           Features
         </Badge>
 
-        <h2 className="text-4xl font-medium tracking-tight text-white">
+        <h2 className="text-3xl font-medium tracking-tight text-white md:text-4xl">
           Harness invisible power{" "}
           <span className="text-neutral-500">to write faster, focus deeper, and save hours.</span>
         </h2>
@@ -52,9 +52,7 @@ const FeaturesSection = () => {
             </div>
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-medium text-white">{feature.title}</h3>
-              <p className="max-w-xs text-base leading-relaxed text-neutral-400">
-                {feature.description}
-              </p>
+              <p className="text-base leading-relaxed text-neutral-400">{feature.description}</p>
             </div>
           </div>
         ))}
