@@ -124,7 +124,8 @@ const FAQSection = () => {
         </div>
 
         <h2 className="anim-header text-3xl font-medium tracking-tight text-white md:text-4xl">
-          Everything you need to know <span className="text-neutral-500">about automating your books.</span>
+          Everything you need to know{" "}
+          <span className="text-neutral-500">about automating your books.</span>
         </h2>
       </div>
 

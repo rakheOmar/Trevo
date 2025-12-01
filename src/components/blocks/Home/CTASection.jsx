@@ -59,7 +59,8 @@ const FinalCTA = () => {
             start chasing growth
           </h2>
           <p className="anim-text mb-8 max-w-md text-sm text-white/80 md:text-base">
-            Experience the difference of automated reconciliation. Sync your data and see the results instantly.
+            Experience the difference of automated reconciliation. Sync your data and see the
+            results instantly.
           </p>
           <div className="anim-button">
             <Button

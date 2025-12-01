@@ -30,8 +30,7 @@ const plans = [
     name: "Growth",
     priceMonthly: 49,
     priceYearly: 39,
-    description:
-      "Automated matching and bank feeds for growing finance teams.",
+    description: "Automated matching and bank feeds for growing finance teams.",
     ctaText: "Upgrade to Growth",
     isPopular: true,
     buttonVariant: "primary",

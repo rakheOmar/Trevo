@@ -2,10 +2,10 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Route, BrowserRouter as Router, Routes, useLocation } from "react-router-dom";
 import { Toaster } from "sonner";
+import DashboardHome from "@/components/blocks/Dashboard/views/DashboardHome";
 // COMPONENTS
 import Navbar from "@/components/blocks/Navbar/Navbar";
 import FooterSection from "@/components/Footer";
-import SmoothScrolling from "@/components/Lenis";
 import Dashboard from "@/pages/Dashboard";
 import ForgotPass from "@/pages/ForgotPass";
 // PAGES
@@ -26,15 +26,19 @@ const DEFINED_ROUTES = [
   "/dashboard",
 ];
 
-const NO_LAYOUT_ROUTES = ["/login", "/signup", "/forgot-password", "/dashboard"];
+const NO_LAYOUT_ROUTES = ["/login", "/signup", "/forgot-password"];
 const FULL_WIDTH_ROUTES = ["/", "/dashboard"];
 
 const Layout = ({ children }) => {
   const { pathname } = useLocation();
-  const shouldShowLayout =
-    DEFINED_ROUTES.includes(pathname) && !NO_LAYOUT_ROUTES.includes(pathname);
 
-  const isFullWidth = FULL_WIDTH_ROUTES.includes(pathname);
+  const isNoLayout = NO_LAYOUT_ROUTES.some((route) => pathname === route);
+  const isDashboardRoute = DEFINED_ROUTES.some(
+    (route) => pathname.startsWith(route) && route === "/dashboard"
+  );
+  const shouldShowLayout = !isNoLayout && !isDashboardRoute;
+
+  const isFullWidth = FULL_WIDTH_ROUTES.some((route) => pathname.startsWith(route));
 
   return (
     <div className="w-full min-h-screen bg-background flex flex-col">
@@ -54,14 +58,7 @@ function App() {
       <Layout>
         <Routes>
           {/* UNPROTECTED */}
-          <Route
-            path="/"
-            element={
-              <SmoothScrolling>
-                <Home />
-              </SmoothScrolling>
-            }
-          />
+          <Route path="/" element={<Home />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-services" element={<TermsOfServices />} />
           <Route path="*" element={<NotFoundPage />} />
@@ -70,7 +67,10 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/forgot-password" element={<ForgotPass />} />
           {/* PROTECTED */}
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/*" element={<Dashboard />}>
+            <Route index element={<DashboardHome />} />
+            <Route path="home" element={<DashboardHome />} />
+          </Route>
         </Routes>
         <SpeedInsights />
         <Analytics />

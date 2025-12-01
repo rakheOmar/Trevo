@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Menu, X } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { BlackIcon, WhiteIcon } from "@/components/Logo";
+import { TrevoIconBlack, TrevoIconWhite } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/config/nav";
 
@@ -94,10 +94,10 @@ const NavBar = () => {
       >
         <Link to="/" className="relative flex h-8 w-24 items-center">
           <div className="icon-white absolute left-0 top-1/2 -translate-y-1/2 opacity-0">
-            <WhiteIcon />
+            <TrevoIconWhite />
           </div>
           <div className="icon-black absolute left-0 top-1/2 -translate-y-1/2 opacity-100">
-            <BlackIcon />
+            <TrevoIconBlack />
           </div>
         </Link>
 

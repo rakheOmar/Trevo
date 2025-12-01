@@ -83,7 +83,9 @@ const FeaturesSection = () => {
 
         <h2 className="anim-header text-3xl font-medium tracking-tight text-white md:text-4xl">
           Your books, balanced on autopilot.{" "}
-          <span className="text-neutral-500">Eliminate manual data entry, catch errors instantly, and close faster.</span>
+          <span className="text-neutral-500">
+            Eliminate manual data entry, catch errors instantly, and close faster.
+          </span>
         </h2>
       </div>
 

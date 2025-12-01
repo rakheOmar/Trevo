@@ -1,5 +1,5 @@
 import { Link as RouterLink } from "react-router-dom";
-import { ThemedLogo } from "@/components/Logo";
+import { TrevoLogo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,7 +14,7 @@ export default function SignUpPage() {
         <div className="p-8 pb-6">
           <div>
             <RouterLink to="/" aria-label="go home">
-              <ThemedLogo />
+              <TrevoLogo />
             </RouterLink>
             <h1 className="mb-1 mt-4 text-xl font-semibold">Create a Trevo Account</h1>
             <p className="text-sm">Welcome! Create an account to get started</p>
