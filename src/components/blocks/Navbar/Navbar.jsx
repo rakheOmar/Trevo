@@ -161,14 +161,14 @@ const NavBar = () => {
       <div
         ref={overlayRef}
         onClick={() => setOpen(false)}
-        className={`fixed inset-0 z-[60] bg-black/60 opacity-0 invisible backdrop-blur-sm lg:hidden ${
+        className={`fixed inset-0 z-60 bg-black/60 opacity-0 invisible backdrop-blur-sm lg:hidden ${
           open ? "pointer-events-auto" : "pointer-events-none"
         }`}
       />
 
       <div
         ref={sheetRef}
-        className="fixed bottom-0 left-0 right-0 z-[70] flex translate-y-full flex-col gap-2 rounded-t-2xl border-t border-white/10 bg-[#121212] p-4 shadow-2xl lg:hidden md:p-6 md:rounded-t-3xl"
+        className="fixed bottom-0 left-0 right-0 z-70 flex translate-y-full flex-col gap-2 rounded-t-2xl border-t border-white/10 bg-[#121212] p-4 shadow-2xl lg:hidden md:p-6 md:rounded-t-3xl"
       >
         <div className="mb-1 flex w-full items-center justify-between">
           <span className="text-xs font-medium text-white/40 uppercase tracking-wider md:text-sm">

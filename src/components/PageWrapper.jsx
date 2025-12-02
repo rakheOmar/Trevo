@@ -7,6 +7,7 @@ export const PageWrapper = ({ children }) => {
   const location = useLocation();
   const wrapperRef = useRef(null);
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: needed to run only on pathname change
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
