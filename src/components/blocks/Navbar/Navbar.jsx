@@ -1,4 +1,6 @@
 import { useGSAP } from "@gsap/react";
+import { Cancel01Icon, Menu01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useState } from "react";
@@ -6,8 +8,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { TrevoIconBlack, TrevoIconWhite } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS } from "@/config/nav";
-import { HugeiconsIcon } from "@hugeicons/react";
-import { Menu01Icon, Cancel01Icon } from "@hugeicons/core-free-icons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +16,7 @@ const NavBar = () => {
   const containerRef = useRef(null);
   const overlayRef = useRef(null);
   const sheetRef = useRef(null);
-  
+
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -171,16 +171,18 @@ const NavBar = () => {
         className="fixed bottom-0 left-0 right-0 z-[70] flex translate-y-full flex-col gap-2 rounded-t-2xl border-t border-white/10 bg-[#121212] p-4 shadow-2xl lg:hidden md:p-6 md:rounded-t-3xl"
       >
         <div className="mb-1 flex w-full items-center justify-between">
-          <span className="text-xs font-medium text-white/40 uppercase tracking-wider md:text-sm">Menu</span>
+          <span className="text-xs font-medium text-white/40 uppercase tracking-wider md:text-sm">
+            Menu
+          </span>
           <button
             onClick={() => setOpen(false)}
             className="flex h-6 w-6 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20 md:h-8 md:w-8"
           >
-            <HugeiconsIcon 
-              icon={Cancel01Icon} 
-              size={14} 
-              strokeWidth={1.5} 
-              color="currentColor" 
+            <HugeiconsIcon
+              icon={Cancel01Icon}
+              size={14}
+              strokeWidth={1.5}
+              color="currentColor"
               className="md:h-5 md:w-5"
             />
           </button>
@@ -207,14 +209,14 @@ const NavBar = () => {
           >
             <Link to="/login">Login</Link>
           </Button>
-          <Button 
-            className="h-9 w-full rounded-lg bg-white text-sm text-black hover:bg-white/90 md:h-11 md:text-base" 
+          <Button
+            className="h-9 w-full rounded-lg bg-white text-sm text-black hover:bg-white/90 md:h-11 md:text-base"
             asChild
           >
             <Link to="/signup">Signup</Link>
           </Button>
         </div>
-        <div className="pb-2 md:pb-4" /> 
+        <div className="pb-2 md:pb-4" />
       </div>
     </>
   );

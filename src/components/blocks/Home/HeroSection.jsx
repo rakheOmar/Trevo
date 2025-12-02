@@ -32,11 +32,7 @@ const HeroMobile = () => {
       className="relative flex min-h-[100dvh] w-full flex-col overflow-hidden bg-white lg:hidden"
     >
       <div className="absolute inset-0 z-0">
-        <img
-          src={Hero}
-          alt="Hero Background"
-          className="h-full w-full object-cover opacity-100"
-        />
+        <img src={Hero} alt="Hero Background" className="h-full w-full object-cover opacity-100" />
       </div>
 
       <div className="relative z-10 flex flex-grow flex-col justify-between px-6 pt-32 md:px-12 md:pt-40">
@@ -106,12 +102,7 @@ const HeroDesktop = () => {
       className="relative hidden min-h-[100vh] w-full overflow-hidden lg:block"
     >
       <div className="w-full">
-        <img
-          ref={bgRef}
-          src={Hero}
-          alt="Hero"
-          className="min-h-[100vh] w-full object-cover"
-        />
+        <img ref={bgRef} src={Hero} alt="Hero" className="min-h-[100vh] w-full object-cover" />
       </div>
 
       <div
@@ -142,11 +133,7 @@ const HeroDesktop = () => {
       </div>
 
       <div className="absolute bottom-0 left-1/2 z-20 w-[75%] -translate-x-1/2">
-        <img
-          src={Placeholder}
-          alt="Placeholder"
-          className="block h-auto w-full drop-shadow-2xl"
-        />
+        <img src={Placeholder} alt="Placeholder" className="block h-auto w-full drop-shadow-2xl" />
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ import NotFoundPage from "@/pages/NotFoundPage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import SignUp from "@/pages/SignUp";
 import TermsOfServices from "@/pages/TermsOfServices";
+import PageWrapper from "./components/PageWrapper";
 
 const DEFINED_ROUTES = [
   "/",
@@ -58,26 +59,28 @@ const Layout = ({ children }) => {
 function App() {
   return (
     <Router>
-      <Layout>
-        <Routes>
-          {/* UNPROTECTED */}
-          <Route path="/" element={<Home />} />
-          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="/terms-of-services" element={<TermsOfServices />} />
-          <Route path="*" element={<NotFoundPage />} />
-          {/* AUTH */}
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/forgot-password" element={<ForgotPass />} />
-          {/* PROTECTED */}
-          <Route path="/dashboard/*" element={<Dashboard />}>
-            <Route index element={<DashboardHome />} />
-            <Route path="home" element={<DashboardHome />} />
-          </Route>
-        </Routes>
-        <SpeedInsights />
-        <Analytics />
-      </Layout>
+      <PageWrapper>
+        <Layout>
+          <Routes>
+            {/* UNPROTECTED */}
+            <Route path="/" element={<Home />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-services" element={<TermsOfServices />} />
+            <Route path="*" element={<NotFoundPage />} />
+            {/* AUTH */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgot-password" element={<ForgotPass />} />
+            {/* PROTECTED */}
+            <Route path="/dashboard/*" element={<Dashboard />}>
+              <Route index element={<DashboardHome />} />
+              <Route path="home" element={<DashboardHome />} />
+            </Route>
+          </Routes>
+          <SpeedInsights />
+          <Analytics />
+        </Layout>
+      </PageWrapper>
     </Router>
   );
 }

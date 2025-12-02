@@ -86,7 +86,8 @@ export default function LogoSection() {
                 src={logo.src}
                 alt={`${logo.name} Logo`}
                 style={{
-                  filter: "brightness(0) saturate(100%) invert(63%) sepia(11%) saturate(196%) hue-rotate(185deg) brightness(88%) contrast(85%)"
+                  filter:
+                    "brightness(0) saturate(100%) invert(63%) sepia(11%) saturate(196%) hue-rotate(185deg) brightness(88%) contrast(85%)",
                 }}
                 className={cn("w-fit", logo.className)}
               />
