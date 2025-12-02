@@ -33,10 +33,13 @@ const Layout = ({ children }) => {
   const { pathname } = useLocation();
 
   const isNoLayout = NO_LAYOUT_ROUTES.some((route) => pathname === route);
-  const isDashboardRoute = DEFINED_ROUTES.some(
-    (route) => pathname.startsWith(route) && route === "/dashboard"
+  const isDashboardRoute = pathname.startsWith("/dashboard");
+
+  const isDefinedRoute = DEFINED_ROUTES.some((route) =>
+    route === "/dashboard" ? pathname.startsWith(route) : pathname === route
   );
-  const shouldShowLayout = !isNoLayout && !isDashboardRoute;
+
+  const shouldShowLayout = isDefinedRoute && !isNoLayout && !isDashboardRoute;
 
   const isFullWidth = FULL_WIDTH_ROUTES.some((route) => pathname.startsWith(route));
 

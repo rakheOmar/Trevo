@@ -13,19 +13,19 @@ const features = [
     title: "Smart Matching",
     description:
       "Forget manual cross-referencing. Trevo matches invoices to bank transactions instantly, highlighting only what needs your attention.",
-    image: "/feat1.png",
+    image: "/feat1.webp",
   },
   {
     title: "Anomaly Detection",
     description:
       "Catch duplicate payments, pricing errors, and subscription creeps before cash leaves your account. Total control, zero effort.",
-    image: "/feat2.png",
+    image: "/feat2.webp",
   },
   {
     title: "One-Click Sync",
     description:
       "Push verified financial data directly to Xero, QuickBooks, or NetSuite. Close your month-end in minutes, not days.",
-    image: "/feat3.png",
+    image: "/feat3.webp",
   },
 ];
 

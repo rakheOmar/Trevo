@@ -45,7 +45,7 @@ const FinalCTA = () => {
       <div className="group relative h-[480px] w-full overflow-hidden bg-card md:h-[360px]">
         <div className="absolute inset-0 z-0">
           <img
-            src="/CTA.png"
+            src="/CTA.webp"
             alt="Trevo Dashboard Background"
             className="h-full w-full object-cover opacity-60 transition-opacity duration-500 group-hover:opacity-50"
           />

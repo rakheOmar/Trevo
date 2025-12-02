@@ -1,10 +1,9 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import plugin
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
-// Register the plugin
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LogoSection() {
@@ -57,9 +56,9 @@ export default function LogoSection() {
     () => {
       gsap.from(".logo-item", {
         scrollTrigger: {
-          trigger: containerRef.current, // Element to watch
-          start: "top 85%", // Start when top of element hits 85% of viewport height
-          toggleActions: "play none none reverse", // Optional: Reverses if you scroll back up
+          trigger: containerRef.current,
+          start: "top 85%",
+          toggleActions: "play none none reverse",
         },
         y: 50,
         opacity: 0,
@@ -86,7 +85,10 @@ export default function LogoSection() {
               <img
                 src={logo.src}
                 alt={`${logo.name} Logo`}
-                className={cn("w-fit opacity-60 dark:invert", logo.className)}
+                style={{
+                  filter: "brightness(0) saturate(100%) invert(63%) sepia(11%) saturate(196%) hue-rotate(185deg) brightness(88%) contrast(85%)"
+                }}
+                className={cn("w-fit", logo.className)}
               />
             </div>
           ))}
